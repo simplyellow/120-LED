@@ -39,25 +39,33 @@ void loop() {
     FastLED.show();
   }
   for(int j  = 0; j < NUM_LEDS; j++) {
-    if(value1) {
+    if(!value1) {
       leds1[j].setRGB(0, 255, 255);
+    } else {
+      leds1[j].setRGB(0, 0, 0);
     }
-    if(value2) {
+    if(!value2) {
       leds2[j].setRGB(0, 128, 255);
+    } else {
+      leds2[j].setRGB(0, 0, 0);
     }
-    fadeall();
+    //fadeall();
     FastLED.show();
     delay(10);
   }
   for(int k  = (NUM_LEDS)-1; k >= 0; k--) {
-    if(value1) {
+    if(!value1) {
       leds1[k].setRGB(0, 255, 255);
+    } else {
+      leds1[k].setRGB(0, 0, 0);
     }
-    if(value2) {
+    if(!value2) {
       leds2[k].setRGB(0, 128, 255);
+    } else {
+      leds2[k].setRGB(0, 0, 0);
     }
     FastLED.show();
-    fadeall();
+   //fadeall();
     delay(10);
   }
 }
