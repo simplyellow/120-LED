@@ -27,39 +27,18 @@ void setup() {
 void loop() { 
   value1 = digitalRead(sw1);
   value2 = digitalRead(sw2);
-
-  //removes any floating LEDs if any switches turn off
-  for(int i  = 0; i < NUM_LEDS; i++) {
-    leds1[i] = CRGB::Black;
-    leds2[i] = CRGB::Black;
-    FastLED.show();
-  }
   for(int j  = 0; j < NUM_LEDS; j++) {
     if(!value1) {
-      leds1[j].setRGB(255, 255, 0);
+      leds1[j].setRGB(255, 0, 0); //red
     } else {
       leds1[j].setRGB(0, 0, 0);
     }
     if(!value2) {
-      leds2[j].setRGB(255, 255, 255);
+      leds2[j].setRGB(0, 0, 255); //blue
     } else {
       leds2[j].setRGB(0, 0, 0);
     }
     FastLED.show();
-    delay(50);
-  }
-  for(int k  = (NUM_LEDS)-1; k >= 0; k--) {
-    if(!value1) {
-      leds1[k].setRGB(255, 255, 0);
-    } else {
-      leds1[k].setRGB(0, 0, 0);
-    }
-    if(!value2) {
-      leds2[k].setRGB(255, 255, 255);
-    } else {
-      leds2[k].setRGB(0, 0, 0);
-    }
-    FastLED.show();
-    delay(50);
+    delay(5);
   }
 }
