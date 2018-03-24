@@ -1,2 +1,2 @@
-# 120-LED
+# indicator-LEDs
 LED controller for battlebots
