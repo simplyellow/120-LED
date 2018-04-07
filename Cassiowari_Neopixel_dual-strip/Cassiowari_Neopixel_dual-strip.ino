@@ -7,7 +7,7 @@ const byte data_pin1 = 0;
 const byte data_pin2 = 1;
 const byte weapon = 3;
 const byte drive = 4;
-const byte num_leds = 1;
+const byte num_leds = 11;
 boolean weapon_on = false;
 boolean drive_on = false;
 
@@ -28,16 +28,19 @@ void loop() {
   weapon_on = digitalRead(weapon);
   drive_on = digitalRead(drive);
   for(int i = 0; i < num_leds; i++) {
-    if(weapon_on) {
-      strip1[i].setRGB(0, 255, 0);
-    } else {
-      strip1[i].setRGB(255, 0, 0);
-    }
-    if(drive_on) {
-      strip2[i].setRGB(0, 255, 0);
-    } else {
+    if(!weapon_on) {
       strip2[i].setRGB(255, 0, 0);
+    } else {
+      strip2[i].setRGB(0, 255, 0);
     }
+    if(!drive_on) {
+      strip1[i].setRGB(0, 0, 255);
+    } else {
+      strip1[i].setRGB(0, 255, 0);
+    }
+
+    // Blue drive on, red weapon on
+    // Green for OFF
     FastLED.show();
     delay(5);
   }
